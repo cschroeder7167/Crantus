@@ -1,8 +1,8 @@
 {
-    "name": "Player input",
+    "name": "PlayerInput",
     "maps": [
         {
-            "name": "On foot",
+            "name": "OnFoot",
             "id": "2ac2bb92-54a0-4c55-b99a-1b864135d088",
             "actions": [
                 {
@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "dcd48b94-0e37-4711-bfe6-00302d60ec5c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -88,6 +97,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b6256f4f-3289-4aab-897e-a486e6309173",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
