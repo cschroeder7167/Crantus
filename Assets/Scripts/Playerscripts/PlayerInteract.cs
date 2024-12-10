@@ -9,7 +9,8 @@ public class PlayerInteract : MonoBehaviour
     private float distance = 3f;
     [SerializeField]
     private LayerMask mask;
-    private PlayerUI playerUI;private InputManager inputManager;
+    private PlayerUI playerUI;
+    private InputManager inputManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +33,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 Interactable interactable = hitInfo.collider.GetComponent<Interactable>();
                 playerUI.UpdateText(interactable.promptMessage);
-                if(InputManager.OnFoot.Interact.triggered){
+                if(inputManager.OnFoot.Interact.triggered){
                     interactable.BaseInteract();
                 
                 }
