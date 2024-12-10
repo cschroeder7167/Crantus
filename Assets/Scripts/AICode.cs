@@ -6,29 +6,26 @@ using UnityEngine.AI;
 public class AICode : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        public NavMeshAgent agent;
-        public Transform player;
-        public LayerMask whatIsGround, whatIsPlayer;
-        public Vector3 walkPoint;
-        bool walkPointSet;
-        public bool playerIsDead;
-        public float walkPointRange;
-        public float attackTime;
-        bool attacked;
-        public float sightRange, attackRange;
-        public bool playerInSightRange, playerInAttackRange;
+    public NavMeshAgent agent;
+    public Transform player;
+    public LayerMask whatIsGround, whatIsPlayer;
+    public Vector3 walkPoint;
+    bool walkPointSet;
+    public bool playerIsDead;
+    public float walkPointRange;
+    public float attackTime;
+    bool attacked;
+    public float sightRange, attackRange;
+    public bool playerInSightRange, playerInAttackRange;
 
-        playerisDead = false;
-
-        private void Awake()
+    public bool playerisDead = false;
+    void Awake()
         {
             player = GameObject.Find("Player").transform;
             agent = GetComponent<NavMeshAgent>();
 
         }
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -41,23 +38,23 @@ public class AICode : MonoBehaviour
         if (playerInAttackRange && playerInSightRange) Kill();
     }
 
-    private void Patrol()
+    void Patrol()
     {
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
             agent.SetDestination(walkPoint);
 
-        Vector3 distanceToWalkPoint = transform.position - SearchWalkPoint;
+        Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
 
     }
-    private void SearchWalkPoint()
+    void SearchWalkPoint()
     {
-        float randomZ = randomZ.Range(-walkPointRange, walkPointRange);
-        float randomX = randomZ.Range(-walkPointRange, walkPointRange);
+        float randomZ = Random.Range(-walkPointRange, walkPointRange);
+        float randomX = Random.Range(-walkPointRange, walkPointRange);
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
@@ -66,16 +63,17 @@ public class AICode : MonoBehaviour
         
     }
 
-    private void Chase()
+    void Chase()
     {
-        agent.SetDesination(player.position);
+        agent.SetDestination(player.position);
 
     }
 
-    private void Kill()
+    void Kill()
     {
         playerIsDead = true;
 
     }
+
 
 }
