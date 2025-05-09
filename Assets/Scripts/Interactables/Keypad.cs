@@ -6,6 +6,7 @@ public class Keypad: Interactable
 {
     [SerializeField]
     private GameObject door;
+    private bool doorOpen;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,8 @@ public class Keypad: Interactable
     //Design a interaction using code here
     protected override void Interact()
     {
-        Debug.Log("interacted with keypad/testInteractable" + gameObject.name);
+      doorOpen = !doorOpen;
+      door.GetComponent<Animator>().SetBool("IsOpen",doorOpen);
     }
     
     
