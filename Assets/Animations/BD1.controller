@@ -75,7 +75,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Door 1
+  m_Name: BD1
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsOpen
@@ -168,7 +168,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 105174109707767110}
-    m_Position: {x: 50, y: 360, z: 0}
+    m_Position: {x: 400, y: -20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 979524671171331642}
     m_Position: {x: 310, y: 210, z: 0}
