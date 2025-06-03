@@ -5,13 +5,18 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private StateMachine stateMachine;
-    private navMeshAgent agent;
+    private UnityEngine.AI.NavMeshAgent agent;
 
-    public NavMeshAgentAgent Agent {}
+    public UnityEngine.AI.NavMeshAgent Agent { get => agent; }
+    [SerializeField]
+    private string currentState;
     // Start is called before the first frame update
     void Start()
     {
-        
+        stateMachine = GetComponent<StateMachine>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        stateMachine.Initialise();
+
     }
 
     // Update is called once per frame
